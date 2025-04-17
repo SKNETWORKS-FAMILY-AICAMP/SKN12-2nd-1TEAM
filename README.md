@@ -1,6 +1,6 @@
 # SKN12-2nd-1TEAM
 # 넷플릭스 고객 이탈 예측 시스템
-
+## 팀 명 : 뇌 녹 조
 ## 👥 팀원소개
 
 | 고남혁 <br> @ypck | 김승학 <br> @seunghak-kim | 이주영 <br> @juyeong608 | 최요섭 <br> @1203choi |
@@ -135,7 +135,7 @@
 netflix-churn-prediction/
 │
 ├── data/
-│   └── netflix_users_final.csv    # 최종 분석에 사용된 데이터셋
+│   └── netflix_users.csv    # 최종 분석에 사용된 데이터셋
 │
 ├── notebooks/
 │   └── netflix_churn_prediction.ipynb    # 전체 분석 과정이 담긴 노트북
@@ -196,46 +196,6 @@ netflix-churn-prediction/
 
 ---
 
-## 설치 및 실행 방법
-1. 저장소 클론
-```bash
-git clone https://github.com/SKN12-2nd-1TEAM/netflix-churn-prediction.git
-cd netflix-churn-prediction
-```
-
-2. 필요한 패키지 설치
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn xgboost lightgbm imbalanced-learn shap joblib
-```
-
-3. 두 가지 실행 방법:
-
-   a. Google Colab에서 실행
-   ```
-   - 노트북 파일(netflix_churn_prediction.ipynb)을 Google Colab에 업로드
-   - 데이터셋(netflix_users_final.csv)을 구글 드라이브에 업로드하고 경로 설정
-   - 코드 실행
-   ```
-
-   b. 로컬에서 실행
-   ```python
-   # 코드 내 파일 경로 수정
-   df = pd.read_csv('data/netflix_users_final.csv')  # 경로 수정
-   
-   # 코드 실행
-   python netflix_churn_prediction.py
-   ```
-
-4. 저장된 모델 사용
-```python
-import joblib
-
-# 모델 불러오기
-model = joblib.load('models/RandomForest_best_model.pkl')
-
-# 예측 수행
-predictions = model.predict(new_data)
-```
 
 ---
 
