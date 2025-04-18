@@ -206,9 +206,9 @@ netflix-churn-prediction/
 │   ├── netflix_style.css                  # 모델 성능 비교 결과
 │   └── styles.css                         # 
 ├── utils/
-│   ├── README.md/                         # README
-│   ├── app.py/                            # 
-│   └── requirements.txt                   # 
+│   ├── __pycache__                        # README
+│   ├── stream_cache.py                    # 
+│   └── stream_utils.py                    # 
 │                       
 │
 │
@@ -226,9 +226,11 @@ netflix-churn-prediction/
 │   └── XGBoost - ROC Curve.png 
 │
 │
-│
+├── README.md/                         # README
+├── app.py/                            # 
+└── requirements.txt                   # 
 
-└── LICENSE
+
 ```
 
 ---
