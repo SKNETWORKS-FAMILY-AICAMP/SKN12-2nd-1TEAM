@@ -197,18 +197,18 @@ netflix-churn-prediction/
 │   ├── LogisticRegression_best_model.pkl  # 로지스틱 회귀 모델 (F1: 0.77)
 │   ├── RandomForest_best_model.pkl        # 랜덤 포레스트 모델 (F1: 0.82)
 │   ├── XGBoost_best_model.pkl             # XGBoost 모델 (F1: 0.80)
-│   ├── label_encoder.pkl                  # 
+│   ├── label_encoder.pkl                  
 │   ├── model.ipynb                        # 예측 모델
 │   ├── model_resurts.csv                  # 모델 예측 결과
-│   └── scaler.pkl                         # 
+│   └── scaler.pkl                          
 │
 ├── styles/
 │   ├── netflix_style.css                  # 모델 성능 비교 결과
-│   └── styles.css                         # 
+│   └── styles.css                         
 ├── utils/
-│   ├── __pycache__                        # README
-│   ├── stream_cache.py                    # 
-│   └── stream_utils.py                    # 
+│   ├── __pycache__                        
+│   ├── stream_cache.py                     
+│   └── stream_utils.py                     
 │                       
 │
 │
@@ -227,8 +227,8 @@ netflix-churn-prediction/
 │
 │
 ├── README.md/                         # README
-├── app.py/                            # 
-└── requirements.txt                   # 
+├── app.py/                             
+└── requirements.txt                   
 
 
 ```
@@ -267,7 +267,7 @@ netflix-churn-prediction/
 - **XGBoost**: 경사 부스팅 기반으로 높은 예측 정확도를 보이며, 과적합에 강한 특성을 보임
 - **LogisticRegression**: 모델 구조가 단순하여 해석이 용이하나, 복잡한 패턴 학습에는 한계 존재
 
----
+
 
 
 ---
@@ -292,7 +292,7 @@ netflix-churn-prediction/
   - 실시간 사용자 행동 데이터 수집 및 분석 파이프라인 구축
   - 사용자 행동 변화에 따른 이탈 확률 모니터링 시스템 개발
 
----
+
 
 
 
@@ -303,10 +303,10 @@ netflix-churn-prediction/
 
 
 ## 💭 한줄 회고 
-- 고남혁 :
-- 김승학 :
+- 고남혁 : 여러 라이브러리를 사용해서 비교해보는 좋은 기회였습니다.
+- 김승학 : 머신러닝에 대한 이해도와 알고리즘 향상을 위해 피처엔지니어링을 통해 모델 성능을 개선하는 좋은 기회였습니다.
 - 이주영 : 
-- 최요섭 : 
+- 최요섭 : 이해하기 힘들었던 다양한 머신러닝 모델들을 프로젝트를 통해 비교 분석하며 이해를 깊이 다질 수 있는 의미 있는 시간이었습니다.
 
 
 
