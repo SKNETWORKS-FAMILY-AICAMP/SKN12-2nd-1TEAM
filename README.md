@@ -96,15 +96,6 @@
 ---
 
 ## 기술 스택
-- **언어:** Python 3.8+
-- **데이터 분석:** Pandas, NumPy
-- **머신러닝:** Scikit-learn, XGBoost, LightGBM
-- **데이터 시각화:** Matplotlib, Seaborn
-- **데이터 균형화:** SMOTE (Synthetic Minority Over-sampling Technique)
-- **모델 해석:** SHAP (SHapley Additive exPlanations)
-- **개발환경:** Google Colab, Visual Studio Code
-- **버전 관리:** Git, GitHub
-
 - **언어**
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
 
