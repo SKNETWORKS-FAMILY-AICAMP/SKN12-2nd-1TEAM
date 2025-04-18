@@ -225,8 +225,19 @@ netflix-churn-prediction/
 │   ├── XGBoost - Feature Importance (Top 10).png
 │   └── XGBoost - ROC Curve.png 
 │
+│    
+├── 산출물/
+│   ├── XGBoost - Confusion Matrix.png
+│   ├── XGBoost - Feature Importance (Top 10).png
+│   ├── XGBoost - ROC Curve.png
+│   ├── XGBoost_best_model.pkl
+│   ├── [OT] 2025_플레이데이터_OT_SK네트웍스 Family AI 캠프 12기.pdf   # ppt 자료 pdf
+│   ├── data_preprocessing.csv   # 전처리 데이터
+│   ├── label_encoder.pkl
+│   └── 모델학습결과.csv    
+│   
 │
-├── README.md/                         # README
+├── README.md/                        
 ├── app.py/                             
 └── requirements.txt                   
 
@@ -305,7 +316,7 @@ netflix-churn-prediction/
 ## 💭 한줄 회고 
 - 고남혁 : 여러 라이브러리를 사용해서 비교해보는 좋은 기회였습니다.
 - 김승학 : 머신러닝에 대한 이해도와 알고리즘 향상을 위해 피처엔지니어링을 통해 모델 성능을 개선하는 좋은 기회였습니다.
-- 이주영 : 
+- 이주영 : 데이터 전처리에서 모델생성하여 성능비교, ppt제작까지 팀원들 덕분에 해낼 수 있었던 것 같습니다!
 - 최요섭 : 이해하기 힘들었던 다양한 머신러닝 모델들을 프로젝트를 통해 비교 분석하며 이해를 깊이 다질 수 있는 의미 있는 시간이었습니다.
 
 
