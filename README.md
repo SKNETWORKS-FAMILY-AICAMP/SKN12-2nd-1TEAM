@@ -40,7 +40,7 @@
 ### 📅 개발 기간
 - **2025.04.17 ~ 2025.04.18 (총 2일)**
 
-### 🚗 프로젝트 주제
+### 🎬 프로젝트 주제
 - 머신러닝을 활용한 넷플릭스 사용자 이탈 예측 시스템
 
 
@@ -104,6 +104,36 @@
 - **모델 해석:** SHAP (SHapley Additive exPlanations)
 - **개발환경:** Google Colab, Visual Studio Code
 - **버전 관리:** Git, GitHub
+
+- **언어**
+![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
+
+- **데이터 분석**
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas)
+![NumPy](https://img.shields.io/badge/NumPy-Scientific%20Computing-013243?logo=numpy)
+
+- **머신러닝**
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-F7931E?logo=scikit-learn)
+![XGBoost](https://img.shields.io/badge/XGBoost-Boosting-EC0000?logo=xgboost)
+![LightGBM](https://img.shields.io/badge/LightGBM-Boosting-9ACD32?logo=lightgbm)
+
+- **데이터 시각화**
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?logo=matplotlib)
+![Seaborn](https://img.shields.io/badge/Seaborn-Statistical%20Plots-00CED1?logo=seaborn)
+
+- **데이터 균형화**
+![SMOTE](https://img.shields.io/badge/SMOTE-Data%20Balancing-FF69B4)
+
+- **모델 해석**
+![SHAP](https://img.shields.io/badge/SHAP-Model%20Explainability-FF4500)
+
+- **개발 환경**
+![Google Colab](https://img.shields.io/badge/Google%20Colab-Cloud-F9AB00?logo=googlecolab)
+![VS Code](https://img.shields.io/badge/VS%20Code-IDE-007ACC?logo=visualstudiocode)
+
+- **비전 관리**
+![Git](https://img.shields.io/badge/Git-Version--Control-F05032?logo=git)
+![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)
 
 ---
 
