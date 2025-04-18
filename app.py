@@ -12,7 +12,7 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import time
 import joblib
-from datetime import datetime, timedelta
+import shap
 
 # 한글 깨짐 수정 # 나눔고딕 설정 
 plt.rc('font', family='AppleGothic')  # Mac
@@ -1127,60 +1127,115 @@ else:  # 고객 이탈 예측 탭
                     st.plotly_chart(fig_gauge, use_container_width=True)
                 
                 with col7:
-                    # 주요 이탈 요인 분석
-                    risk_factors = {}
-                    if is_churn:
-                        # 시청 시간 관련 위험도
-                        if float(Watch_Time_Hours) < 50:
-                            risk_factors["낮은 시청 시간"] = 85
+                    # SHAP 값 계산 및 시각화
+                    st.markdown("### 주요 이탈 요인 분석")
+                    try:
+                        # SHAP Explainer 생성
+                        explainer = shap.Explainer(model)
+                        # SHAP 값 계산
+                        shap_values = explainer(input_data)
+                        plt.rcParams['font.family'] = 'DejaVu Sans'
+                        # Summary Plot
+                        st.markdown("#### 전체 특성 중요도")
                         
-                        # 로그인 일자 관련 위험도
-                        if float(last_login_days) > 30:
-                            risk_factors["장기 미접속"] = 75
+                        # Set figure size larger
+                        plt.figure(figsize=(12, 8), facecolor='#141414')
+                        ax = plt.gca()
+                        ax.set_facecolor('#141414')
                         
-                        # 일일 시청 시간 관련 위험도
-                        if float(daily_watch_hours) < 1:
-                            risk_factors["낮은 일일 시청"] = 65
+                        # Set style before creating plot
+                        plt.style.use('dark_background')
                         
-                        # 프로필 수 관련 위험도
-                        if int(profile_count) == 1:
-                            risk_factors["단일 프로필"] = 45
-                    
-                    # 결과가 없으면 기본 메시지 추가
-                    if not risk_factors:
-                        risk_factors = {"정상 이용 패턴": 0}
-                    
-                    # 위험 요인 시각화
-                    st.markdown("### 주요 이탈 위험 요인")
-                    fig_risks = go.Figure()
-                    
-                    for factor, score in risk_factors.items():
-                        fig_risks.add_trace(go.Bar(
-                            x=[score],
-                            y=[factor],
-                            orientation='h',
-                            marker_color='#E50914'
-                        ))
-                    
-                    fig_risks.update_layout(
-                        plot_bgcolor='#141414',
-                        paper_bgcolor='#141414',
-                        font={'color': "white"},
-                        showlegend=False,
-                        margin=dict(l=0, r=0, t=0, b=0),
-                        xaxis=dict(
-                            range=[0, 100],
-                            showgrid=True,
-                            gridcolor='rgba(255, 255, 255, 0.1)',
-                            ticksuffix='%'
-                        ),
-                        yaxis=dict(
-                            showgrid=False
+                        # Create SHAP plot with enhanced visibility
+                        shap.summary_plot(
+                            shap_values,
+                            input_data,
+                            plot_type="dot",
+                            show=False,
+                            plot_size=(12, 8),
+                            color_bar_label='Feature value',
+                            cmap='RdBu_r',
+                            alpha=0.9,
+                            max_display=10
                         )
-                    )
-                    
-                    st.plotly_chart(fig_risks, use_container_width=True)
-                
+                        
+                        plt.gcf().set_facecolor('#141414')
+                        plt.gca().set_facecolor('#141414')
+                        
+                        # Enhance grid visibility
+                        ax = plt.gca()
+                        ax.grid(True, color='#333333', linestyle='-', alpha=0.5, linewidth=0.5)
+                        
+                        # Make spines more visible
+                        for spine in ax.spines.values():
+                            spine.set_color('#666666')
+                            spine.set_linewidth(1.5)
+                            
+                        # Increase text size and make more visible
+                        plt.xticks(color='white', fontsize=11)
+                        plt.yticks(color='white', fontsize=11)
+                        ax.xaxis.label.set_color('white')
+                        ax.yaxis.label.set_color('white')
+                        ax.xaxis.label.set_fontsize(12)
+                        ax.yaxis.label.set_fontsize(12)
+                        
+                        # Enhance colorbar visibility
+                        cbar = plt.gcf().axes[-1]
+                        cbar.set_facecolor('#141414')
+                        cbar.tick_params(colors='white', labelsize=10)
+                        cbar.set_title('Feature value', color='white', fontsize=12, pad=10)
+                        
+                        # Increase scatter plot dot sizes
+                        for collection in plt.gca().collections:
+                            collection.set_sizes([100])  # 점 크기 증가
+                        
+                        # Adjust layout with more padding
+                        plt.tight_layout(pad=2.0)
+                        plt.subplots_adjust(left=0.3)
+                        
+                        st.pyplot(plt)
+
+                        # 주요 영향 요인 설명
+                        st.markdown("#### 주요 영향 요인 설명")
+                        
+                        # SHAP 값을 기반으로 특성 중요도 계산 및 정렬
+                        feature_importance = pd.DataFrame({
+                            '특성': input_data.columns,
+                            'SHAP 값': np.abs(shap_values.values[0]).mean()
+                        }).sort_values('SHAP 값', ascending=False)
+
+                        # 특성별 영향도 설명
+                        feature_descriptions = {
+                            'satisfaction_score': '서비스 만족도',
+                            'daily_watch_hours': '일일 시청 시간',
+                            'Last_Login_days': '마지막 로그인 이후 경과일',
+                            'Watch_Time_Hours': '총 시청 시간',
+                            'Age': '나이',
+                            'preferred_watching_time': '선호 시청 시간대',
+                            'monthly_income': '월 소득',
+                            'promo_offers_used': '프로모션 사용 여부',
+                            'primary_device': '주 사용 기기',
+                            'Subscription_Type': '구독 유형'
+                        }
+
+                        # 상위 5개 특성에 대한 설명 표시
+                        st.markdown("##### 🎯 상위 5개 영향 요인")
+                        for idx, row in feature_importance.head().iterrows():
+                            feature = row['특성']
+                            impact = row['SHAP 값']
+                            description = feature_descriptions.get(feature, feature)
+                            
+                            # SHAP 값의 부호에 따라 영향도 방향 결정
+                            direction = "높임" if shap_values.values[0][idx] > 0 else "낮춤"
+                            
+                            st.markdown(f"""
+                            **{description}** (중요도: {impact:.4f})
+                            - 이 요인은 고객 이탈 가능성을 {direction}
+                            - 현재 입력된 값: {input_data[feature].values[0]}
+                            """)
+                    except Exception as e:
+                        st.error(f"SHAP 분석 중 오류가 발생했습니다: {str(e)}")
+
                 # 맞춤형 권장사항 표시
                 st.markdown("#### 고객에 맞춤 조치")
                 if is_churn:
@@ -1190,16 +1245,16 @@ else:  # 고객 이탈 예측 탭
                     if float(Watch_Time_Hours) < 50:
                         recommendations.append(f"""
                         {recommendation_count}. 🎯 **맞춤형 컨텐츠 추천 강화**
-                           - 고객의 시청 기록을 기반으로 더 정확한 추천 제공
-                           - 새로운 장르의 컨텐츠 노출 확대
+                        - 고객의 시청 기록을 기반으로 더 정확한 추천 제공
+                        - 새로운 장르의 컨텐츠 노출 확대
                         """)
                         recommendation_count += 1
                     
                     if Subscription_Type == "Premium":
                         recommendations.append(f"""
                         {recommendation_count}. 💰 **특별 할인 프로모션 제공**
-                           - 다음 달 구독료 20% 할인 쿠폰 제공
-                           - 연간 구독 전환 시 추가 할인 제공
+                        - 다음 달 구독료 20% 할인 쿠폰 제공
+                        - 연간 구독 전환 시 추가 할인 제공
                         """)
                         recommendation_count += 1
                     else:
