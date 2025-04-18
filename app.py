@@ -13,7 +13,6 @@ import matplotlib.pyplot as plt
 import time
 import joblib
 from datetime import datetime, timedelta
-import shap
 
 # 한글 깨짐 수정 # 나눔고딕 설정 
 plt.rc('font', family='AppleGothic')  # Mac
@@ -1128,85 +1127,59 @@ else:  # 고객 이탈 예측 탭
                     st.plotly_chart(fig_gauge, use_container_width=True)
                 
                 with col7:
-                    # SHAP 값 계산 및 시각화
-                    st.markdown("### 주요 이탈 요인 분석")
+                    # 주요 이탈 요인 분석
+                    risk_factors = {}
+                    if is_churn:
+                        # 시청 시간 관련 위험도
+                        if float(Watch_Time_Hours) < 50:
+                            risk_factors["낮은 시청 시간"] = 85
+                        
+                        # 로그인 일자 관련 위험도
+                        if float(last_login_days) > 30:
+                            risk_factors["장기 미접속"] = 75
+                        
+                        # 일일 시청 시간 관련 위험도
+                        if float(daily_watch_hours) < 1:
+                            risk_factors["낮은 일일 시청"] = 65
+                        
+                        # 프로필 수 관련 위험도
+                        if int(profile_count) == 1:
+                            risk_factors["단일 프로필"] = 45
                     
-                    try:
-                        # SHAP Explainer 생성
-                        explainer = shap.Explainer(model)
-                        
-                        # SHAP 값 계산
-                        shap_values = explainer(input_data)
-                        
-                        plt.rcParams['font.family'] = 'DejaVu Sans'
-                        # Summary Plot
-                        st.markdown("#### 전체 특성 중요도")
-                        plt.figure(figsize=(10, 6))
-                        shap.summary_plot(
-                            shap_values,
-                            input_data,
-                            plot_type="dot",
-                            show=False
+                    # 결과가 없으면 기본 메시지 추가
+                    if not risk_factors:
+                        risk_factors = {"정상 이용 패턴": 0}
+                    
+                    # 위험 요인 시각화
+                    st.markdown("### 주요 이탈 위험 요인")
+                    fig_risks = go.Figure()
+                    
+                    for factor, score in risk_factors.items():
+                        fig_risks.add_trace(go.Bar(
+                            x=[score],
+                            y=[factor],
+                            orientation='h',
+                            marker_color='#E50914'
+                        ))
+                    
+                    fig_risks.update_layout(
+                        plot_bgcolor='#141414',
+                        paper_bgcolor='#141414',
+                        font={'color': "white"},
+                        showlegend=False,
+                        margin=dict(l=0, r=0, t=0, b=0),
+                        xaxis=dict(
+                            range=[0, 100],
+                            showgrid=True,
+                            gridcolor='rgba(255, 255, 255, 0.1)',
+                            ticksuffix='%'
+                        ),
+                        yaxis=dict(
+                            showgrid=False
                         )
-                        plt.tight_layout()
-                        plt.xticks(color='white')
-                        plt.yticks(color='white')
-                        st.pyplot(plt)
-                        # 주요 영향 요인 설명
-                        st.markdown("#### 주요 영향 요인 설명")
-                        feature_importance = pd.DataFrame({
-                            '특성': input_data.columns,
-                            'SHAP 값': shap_values.values[0]
-                        }).sort_values('SHAP 값', key=abs, ascending=False)
-                        
-                        for idx, row in feature_importance.head(5).iterrows():
-                            impact = "증가" if row['SHAP 값'] > 0 else "감소"
-                            st.markdown(f"- **{row['특성']}**: 이탈 확률을 {abs(row['SHAP 값']):.3f}만큼 {impact}시킵니다.")
-                        
-                    except Exception as e:
-                        st.error(f"SHAP 분석 중 오류가 발생했습니다: {str(e)}")
-                        st.info("기존 위험 요인 분석을 대신 표시합니다.")
-                        
-                        # 기존 위험 요인 분석 코드
-                        risk_factors = {}
-                        if is_churn:
-                            if float(Watch_Time_Hours) < 50:
-                                risk_factors["낮은 시청 시간"] = 85
-                            if float(last_login_days) > 30:
-                                risk_factors["장기 미접속"] = 75
-                            if float(daily_watch_hours) < 1:
-                                risk_factors["낮은 일일 시청"] = 65
-                            if int(profile_count) == 1:
-                                risk_factors["단일 프로필"] = 45
-                        
-                        if not risk_factors:
-                            risk_factors = {"정상 이용 패턴": 0}
-                        
-                        fig_risks = go.Figure()
-                        for factor, score in risk_factors.items():
-                            fig_risks.add_trace(go.Bar(
-                                x=[score],
-                                y=[factor],
-                                orientation='h',
-                                marker_color='#E50914'
-                            ))
-                        
-                        fig_risks.update_layout(
-                            plot_bgcolor='#141414',
-                            paper_bgcolor='#141414',
-                            font={'color': "white"},
-                            showlegend=False,
-                            margin=dict(l=0, r=0, t=0, b=0),
-                            xaxis=dict(
-                                range=[0, 100],
-                                showgrid=True,
-                                gridcolor='rgba(255, 255, 255, 0.1)',
-                                ticksuffix='%'
-                            ),
-                            yaxis=dict(showgrid=False)
-                        )
-                        
-                        st.plotly_chart(fig_risks, use_container_width=True)
+                    )
+                    
+                    st.plotly_chart(fig_risks, use_container_width=True)
                 
                 # 맞춤형 권장사항 표시
                 st.markdown("#### 고객에 맞춤 조치")

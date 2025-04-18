@@ -19,15 +19,12 @@ def preprocess_data(df):
         df['Last_Login_days'] = df['Last_Login_days'].apply(lambda x: 0 if x < 0 else x)
         # Last_Login 컬럼 제거
         df = df.drop(columns=['Last_Login'])
-        # 한달 장기간 미접속자 변경 
-        df['month_churn'] = df['Last_Login_days'].apply(lambda x: 1 if x >= 30 else 0)
+        
         # 범주형 변수 선택 및 인코딩
         categorical_columns = df.select_dtypes(include=['object']).columns
         for column in categorical_columns:
             df[column] = label_encoder.fit_transform(df[column])
-        # 스케일 적용 
-        scaler = joblib.load('./model/scaler.pkl')
-        df = scaler.fit_transform(df)
+        
         return df
         
     except Exception as e:

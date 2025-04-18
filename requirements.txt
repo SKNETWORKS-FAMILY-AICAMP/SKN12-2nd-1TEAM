@@ -6,6 +6,7 @@ geopandas>=0.10.2
 folium>=0.12.1
 scikit-learn>=1.0.2
 streamlit>=1.22.0
+streamlit-shap==1.0.2                    
 xgboost>=1.5.1
 lightgbm>=3.3.2
 shap>=0.40.0
