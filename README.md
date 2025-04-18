@@ -3,9 +3,36 @@
 ## 팀 명 : 뇌 녹 조
 ## 👥 팀원소개
 
-|   고남혁 <br> @ypck   | 김승학 <br> @seunghak-kim | 이주영 <br> @juyeong608 |   최요섭 <br> @1203choi   |
-| :--: | :--: | :--: | :--: |
-| 사진 자리 | 사진 자리 | 사진 자리 | 사진 자리 |
+<p align="center">
+<table width="100%">
+  <tr align="center">
+    <td width="25%">
+      <a href="https://github.com/ypck">
+        <img src="이미지_경로/고남혁.png" width="150" height="150"><br>
+        <b>고남혁</b>
+      </a>
+    </td>
+    <td width="25%">
+      <a href="https://github.com/seunghak-kim">
+        <img src="이미지_경로/김승학.png" width="150" height="150"><br>
+        <b>김승학</b>
+      </a>
+    </td>
+    <td width="25%">
+      <a href="https://github.com/juyeong608">
+        <img src="이미지_경로/이주영.png" width="150" height="150"><br>
+        <b>이주영</b>
+      </a>
+    </td>
+    <td width="25%">
+      <a href="https://github.com/1203choi">
+        <img src="이미지_경로/최요섭.png" width="150" height="150"><br>
+        <b>최요섭</b>
+      </a>
+    </td>
+  </tr>
+</table>
+</p>
 ---
 
 ## 🖥️ 프로젝트
