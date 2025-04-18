@@ -181,29 +181,53 @@
 ```
 netflix-churn-prediction/
 │
+├── assets  # 이미지 파일
+│
+│
+│
 ├── data/
+│   ├── netflix_reviews.csv  # 리뷰 데이터셋
 │   └── netflix_users.csv    # 최종 분석에 사용된 데이터셋
 │
 ├── notebooks/
 │   └── netflix_churn_prediction.ipynb    # 전체 분석 과정이 담긴 노트북
 │
-├── models/
+├── model/
+│   ├── LightGBM_best_model.pkl            # LightGBM 모델 (F1: 0.80)
 │   ├── LogisticRegression_best_model.pkl  # 로지스틱 회귀 모델 (F1: 0.77)
 │   ├── RandomForest_best_model.pkl        # 랜덤 포레스트 모델 (F1: 0.82)
 │   ├── XGBoost_best_model.pkl             # XGBoost 모델 (F1: 0.80)
-│   └── LightGBM_best_model.pkl            # LightGBM 모델 (F1: 0.80)
+│   ├── label_encoder.pkl                  # 
+│   ├── model.ipynb                        # 예측 모델
+│   ├── model_resurts.csv                  # 모델 예측 결과
+│   └── scaler.pkl                         # 
 │
-├── results/
-│   └── model_results.csv                  # 모델 성능 비교 결과
+├── styles/
+│   ├── netflix_style.css                  # 모델 성능 비교 결과
+│   └── styles.css                         # 
+├── utils/
+│   ├── README.md/                         # README
+│   ├── app.py/                            # 
+│   └── requirements.txt                   # 
+│                       
 │
-├── visualizations/
-│   ├── confusion_matrices/                # 각 모델의 혼동 행렬
-│   ├── roc_curves/                        # 각 모델의 ROC 곡선
-│   ├── feature_importance/                # 각 모델의 특성 중요도
-│   └── shap_values/                       # SHAP 값 시각화
 │
-├── requirements.txt
-├── README.md
+├── result/
+│   ├── LightGBM - Confusion Matrix.png
+│   ├── LightGBM - Feature Importance (Top)
+│   ├── LightGBM - ROC Curve.png
+│   ├── LogisticRegression - Confusion Matrix.png
+│   ├── LogisticRegression - ROC Curve.png
+│   ├── RandomForest - Confusion Matrix.png
+│   ├── RandomForest - Feature Importance (Top 10).png
+│   ├── RandomForest - ROC Curve.png
+│   ├── XGBoost - Confusion Matrix.png
+│   ├── XGBoost - Feature Importance (Top 10).png
+│   └── XGBoost - ROC Curve.png 
+│
+│
+│
+
 └── LICENSE
 ```
 
