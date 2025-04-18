@@ -1,0 +1,140 @@
+/* Netflix Theme Styling */
+
+/* Main container */
+.main {
+    padding: 2rem;
+    background-color: #141414;
+    color: #ffffff;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+/* Cards and containers */
+.stCard {
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #2d2d2d;
+    margin-bottom: 1rem;
+}
+
+/* Metrics styling */
+.metric-container {
+    background-color: #1f1f1f;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #2d2d2d;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #E50914;
+}
+
+.metric-label {
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+
+/* Tabs styling */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 2rem;
+    background-color: #1f1f1f;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    color: #cccccc;
+    font-weight: 500;
+}
+
+.stTabs [data-baseweb="tab-highlight"] {
+    background-color: #E50914;
+}
+
+/* Buttons */
+.stButton > button {
+    background-color: #E50914;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.stButton > button:hover {
+    background-color: #f40612;
+}
+
+/* Selectbox */
+.stSelectbox [data-baseweb="select"] {
+    background-color: #1f1f1f;
+    border: 1px solid #2d2d2d;
+}
+
+/* Slider */
+.stSlider [data-baseweb="slider"] {
+    background-color: #E50914;
+}
+
+/* DataFrame styling */
+.dataframe {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    border: 1px solid #2d2d2d;
+}
+
+.dataframe th {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    padding: 0.5rem;
+}
+
+.dataframe td {
+    color: #cccccc;
+    padding: 0.5rem;
+}
+
+/* Charts */
+.plot-container {
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid #2d2d2d;
+}
+
+/* Sidebar */
+.sidebar .sidebar-content {
+    background-color: #1f1f1f;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #E50914;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f40612;
+}
+
+/* Loading spinner */
+.stSpinner > div {
+    border-color: #E50914 !important;
+} 

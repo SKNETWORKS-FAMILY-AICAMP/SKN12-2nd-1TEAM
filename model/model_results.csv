@@ -1,0 +1,5 @@
+Model,Best Params,Accuracy,F1 Score
+XGBoost,"{'colsample_bytree': 0.7, 'learning_rate': 0.1, 'n_estimators': 100, 'reg_alpha': 0, 'reg_lambda': 1, 'subsample': 0.7}",0.8010545267489712,0.8035555555555556
+RandomForest,"{'max_depth': 10, 'max_features': 'sqrt', 'min_samples_leaf': 2, 'min_samples_split': 5, 'n_estimators': 200}",0.7920524691358025,0.797088718785293
+LightGBM,"{'bagging_fraction': 0.8, 'bagging_freq': 5, 'feature_fraction': 0.7, 'lambda_l1': 0, 'lambda_l2': 0, 'learning_rate': 0.05, 'n_estimators': 100, 'num_leaves': 31}",0.7888374485596708,0.7918356997971603
+LogisticRegression,"{'C': 1, 'penalty': 'l2', 'solver': 'liblinear'}",0.7669753086419753,0.7695829094608342
