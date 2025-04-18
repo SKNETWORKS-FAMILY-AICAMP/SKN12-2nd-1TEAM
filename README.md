@@ -41,7 +41,7 @@
 - **2025.04.17 ~ 2025.04.18 (총 2일)**
 
 ### 🚗 프로젝트 주제
-- 머신러닝을 활용한 넷플릭스 사용자 이탈 예측 시스
+- 머신러닝을 활용한 넷플릭스 사용자 이탈 예측 시스템
 
 
 ## 📌 프로젝트 개요
@@ -102,7 +102,7 @@
 - **데이터 시각화:** Matplotlib, Seaborn
 - **데이터 균형화:** SMOTE (Synthetic Minority Over-sampling Technique)
 - **모델 해석:** SHAP (SHapley Additive exPlanations)
-- **개발환경:** Google Colab
+- **개발환경:** Google Colab, Visual Studio Code
 - **버전 관리:** Git, GitHub
 
 ---
