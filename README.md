@@ -53,7 +53,7 @@
 - 고객 이탈은 수익 감소로 직결되기 때문에 사전 예측과 빠른 대응이 필수적임.
 - 정확한 이탈 예측 모델은 효율적인 마케팅 전략 수립에 도움을 줌.
 - 데이터 기반 분석은 기업의 의사결정을 체계적이고 객관적으로 만들어 줌.
-<img src="https://img4.yna.co.kr/photo/yna/YH/2022/10/31/PYH2022103108820001300_P4.jpg" width="500"><br>
+<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F001%2F2022%2F10%2F31%2FGYH2022103100120004400_P2_20221031145311084.jpg&type=sc960_832" width="500"><br>
   
 ### 🎯 프로젝트 목표
 - 고객 이탈 문제를 데이터 기반으로 해결할 수 있는 실질적인 분석 역량 확보
