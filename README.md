@@ -7,25 +7,25 @@
   <tr align="center">
     <td width="25%">
       <a href="https://github.com/ypck">
-        <img src="IMAGES/보네카 암발라부.webp" width="200" height="200"><br>
+        <img src="assets/보네카 암발라부.webp" width="200" height="200"><br>
         <b>고남혁</b>
       </a>
     </td>
     <td width="25%">
       <a href="https://github.com/seunghak-kim">
-        <img src="IMAGES/브루발로니 룰릴롤리.webp" width="200" height="200"><br>
+        <img src="assets/브루발로니 룰릴롤리.webp" width="200" height="200"><br>
         <b>김승학</b>
       </a>
     </td>
     <td width="25%">
       <a href="https://github.com/juyeong608">
-        <img src="IMAGES/블루베리니 옥토푸시니.webp" width="200" height="200"><br>
+        <img src="assets/블루베리니 옥토푸시니.webp" width="200" height="200"><br>
         <b>이주영</b>
       </a>
     </td>
     <td width="25%">
       <a href="https://github.com/1203choi">
-        <img src="IMAGES/퉁퉁퉁퉁퉁퉁퉁퉁퉁 사후르.webp" width="200" height="200"><br>
+        <img src="assets/퉁퉁퉁퉁퉁퉁퉁퉁퉁 사후르.webp" width="200" height="200"><br>
         <b>최요섭</b>
       </a>
     </td>
