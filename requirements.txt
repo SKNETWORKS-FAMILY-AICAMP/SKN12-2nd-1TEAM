@@ -12,7 +12,7 @@ shap>=0.40.0
 jupyter>=1.0.0
 joblib>=1.1.0
 plotly>=5.13.0
-wordcloud==1.8.2
+wordcloud==1.9.4
 imbalanced-learn==0.13.0
 watchdog==6.0.0
 tqdm==4.67.1
