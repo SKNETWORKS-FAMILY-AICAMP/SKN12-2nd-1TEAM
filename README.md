@@ -19,7 +19,7 @@
     </td>
     <td width="25%">
       <a href="https://github.com/juyeong608">
-        <img src="IMAGES/블루베리니 옥토푸시니.webp" width="150" height="150"><br>
+        <img src="IMAGES/블루베리니 옥토푸시니.webp" width="150" height="150"><br>
         <b>이주영</b>
       </a>
     </td>
