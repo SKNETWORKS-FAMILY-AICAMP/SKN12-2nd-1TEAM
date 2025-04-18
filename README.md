@@ -1,4 +1,3 @@
-# SKN12-2nd-1TEAM
 # 넷플릭스 고객 이탈 예측 시스템
 ## 팀 명 : Team Brainrot
 ## 👥 팀원소개
